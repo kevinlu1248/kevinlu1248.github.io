@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://kevin-lu.tech/sitemap.xml
-Host: https://kevin-lu.tech
+Sitemap: https://brittanychiang.com/sitemap.xml
+Host: https://brittanychiang.com
