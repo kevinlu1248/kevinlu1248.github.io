@@ -1,0 +1,43 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About · ${SITE_TITLE}`} description="About Kevin Lu." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="prose">
+				<h1>About</h1>
+				<p>
+					I'm Kevin Lu — co-founder of <a href="https://sweep.dev">Sweep AI</a>, a
+					Y&nbsp;Combinator (S23) company building AI tooling for developers.
+				</p>
+				<p>
+					Before Sweep, I was a machine learning engineer at Roblox, and I studied
+					computer science at the University of Waterloo. I'm based in San Francisco.
+				</p>
+				<p>
+					These days I spend most of my time at the intersection of large language models
+					and developer experience — designing agents, fine-tuning models, and figuring out
+					how to make AI genuinely useful for engineering work. This site is where I write
+					about the things I'm learning.
+				</p>
+
+				<h2>Elsewhere</h2>
+				<ul>
+					<li><a href="https://github.com/kevinlu1248">GitHub</a></li>
+					<li><a href="https://sweep.dev">Sweep AI</a></li>
+					<li><a href="mailto:kevin@sweep.dev">kevin@sweep.dev</a></li>
+				</ul>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

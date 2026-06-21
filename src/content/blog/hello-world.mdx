@@ -1,0 +1,34 @@
+---
+title: 'Hello, world'
+description: 'A new home for my writing — and a quick note on how this site is built.'
+pubDate: 'Jun 20 2026'
+heroImage: '../../assets/blog-placeholder-1.jpg'
+---
+
+Welcome to the new site. I rebuilt it from scratch with [Astro](https://astro.build),
+and I'm planning to use it as a place to write more regularly — mostly about AI,
+developer tooling, and whatever I'm building at [Sweep](https://sweep.dev).
+
+## Why a blog
+
+Writing forces me to actually finish a thought. A lot of what I learn day to day
+lives in scattered notes and Slack threads; this is an attempt to turn some of that
+into something more durable.
+
+## How this is built
+
+The whole site is statically generated and hosted on GitHub Pages. Posts are just
+Markdown and MDX files in a folder — which means I can drop in real components when
+a plain paragraph won't do:
+
+import HeaderLink from '../../components/HeaderLink.astro';
+
+<HeaderLink href="/about">This is a live Astro component embedded in MDX →</HeaderLink>
+
+That's the nice part about MDX: it's Markdown when you want it to be, and a full
+component when you don't.
+
+## What's next
+
+More posts. To write your own, just add a new `.md` or `.mdx` file to
+`src/content/blog/` and it shows up automatically. Thanks for stopping by.
