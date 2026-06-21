@@ -2,13 +2,15 @@
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 5);
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const fmtDate = (d) =>
+	`${d.getFullYear()} ${d.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' })}`;
 ---
 
 <!doctype html>
@@ -19,161 +21,89 @@ const posts = (await getCollection('blog'))
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-				<p class="eyebrow">San Francisco, CA</p>
-				<h1>Hi, I'm Kevin Lu.</h1>
-				<p class="lede">
-					Co-founder of <a href="https://sweep.dev">Sweep AI</a> (YC&nbsp;S23). Previously
-					a machine learning engineer at Roblox, and CS at the University of Waterloo. I build
-					AI developer tools and write about what I learn along the way.
-				</p>
-				<div class="cta">
-					<a class="button" href="/blog">Read the blog →</a>
-					<a class="button button--ghost" href="/about">About me</a>
+			<section class="intro">
+				<div class="bio">
+					<p>I am the co-founder of <a href="https://sweep.dev">Sweep AI</a> (YC&nbsp;S23).</p>
+					<p>We build AI agents that help software engineers write and maintain code.</p>
+					<p>Previously, I was a machine learning engineer at Roblox.</p>
+					<p>I studied computer science at the University of Waterloo.</p>
+					<p>I write about large language models, fine-tuning, and developer tools.</p>
+					<p class="links">
+						<a href="https://github.com/kevinlu1248">GitHub</a> /
+						<a href="https://sweep.dev">Sweep</a> /
+						<a href="mailto:kevin@sweep.dev">Email</a>
+					</p>
 				</div>
-				<div class="links">
-					<a href="https://github.com/kevinlu1248">GitHub</a>
-					<span>·</span>
-					<a href="https://sweep.dev">Sweep</a>
-					<span>·</span>
-					<a href="mailto:kevin@sweep.dev">Email</a>
-				</div>
+				<img class="portrait" src="/profile.jpg" alt="Kevin Lu" width="150" height="150" />
 			</section>
 
 			{
 				posts.length > 0 && (
-					<section class="writing">
-						<h2>Recent writing</h2>
-						<ul>
+					<section class="section">
+						<h2>Writing</h2>
+						<ul class="entry-list">
 							{posts.map((post) => (
 								<li>
-									<a href={`/blog/${post.id}/`}>
-										<span class="post-title">{post.data.title}</span>
-										<FormattedDate date={post.data.pubDate} />
-									</a>
-									{post.data.description && (
-										<p class="post-desc">{post.data.description}</p>
-									)}
+									<span class="date">{fmtDate(post.data.pubDate)}</span>
+									<span class="entry-title">
+										<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+									</span>
 								</li>
 							))}
 						</ul>
-						<a class="all-posts" href="/blog">All posts →</a>
 					</section>
 				)
 			}
+
+			<section class="section">
+				<h2>Projects</h2>
+				<ul class="entry-list">
+					<li>
+						<span class="date">2023&ndash;</span>
+						<span class="entry-title">
+							<a href="https://sweep.dev">Sweep AI</a> — AI agents for software engineering.
+						</span>
+					</li>
+				</ul>
+			</section>
 		</main>
 		<Footer />
 		<style>
-			.hero {
-				padding: 1rem 0 3rem;
-				border-bottom: 1px solid rgb(var(--gray-light));
-			}
-			.eyebrow {
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				font-size: 0.8rem;
-				color: rgb(var(--gray));
-				margin: 0 0 0.5rem;
-			}
-			.hero h1 {
-				font-size: 2.8rem;
-				margin-bottom: 1rem;
-			}
-			.lede {
-				font-size: 1.2rem;
-				color: rgb(var(--gray-dark));
-				max-width: 38rem;
-			}
-			.cta {
+			.intro {
 				display: flex;
-				flex-wrap: wrap;
-				gap: 0.75rem;
-				margin: 1.5rem 0 1.25rem;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 2rem;
 			}
-			.button {
-				display: inline-block;
-				padding: 0.6rem 1.1rem;
-				border-radius: 999px;
-				background: var(--accent);
-				color: #fff;
-				text-decoration: none;
-				font-weight: 700;
-				transition: 0.2s ease;
+			.bio {
+				flex: 1;
 			}
-			.button:hover {
-				background: var(--accent-dark);
-				color: #fff;
-			}
-			.button--ghost {
-				background: transparent;
-				color: var(--accent);
-				border: 1px solid rgb(var(--gray-light));
-			}
-			.button--ghost:hover {
-				background: rgba(var(--gray-light), 40%);
-				color: var(--accent-dark);
+			.bio p {
+				margin: 0 0 0.75rem 0;
 			}
 			.links {
-				display: flex;
-				gap: 0.6rem;
-				align-items: center;
-				color: rgb(var(--gray));
-				font-size: 0.95rem;
+				margin-top: 1.25rem !important;
 			}
-			.writing {
-				padding-top: 2.5rem;
+			.portrait {
+				flex: 0 0 auto;
+				width: 150px;
+				height: 150px;
+				object-fit: cover;
+				border-radius: 4px;
+				margin-top: 0.25rem;
 			}
-			.writing h2 {
-				font-size: 1.6rem;
-				margin-bottom: 1.25rem;
+			.section {
+				margin-top: 3rem;
 			}
-			.writing ul {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-			}
-			.writing li {
-				padding: 1rem 0;
-				border-bottom: 1px solid rgb(var(--gray-light));
-			}
-			.writing li a {
-				display: flex;
-				justify-content: space-between;
-				align-items: baseline;
-				gap: 1rem;
-				text-decoration: none;
-				color: rgb(var(--black));
-			}
-			.post-title {
-				font-weight: 700;
-				transition: color 0.2s ease;
-			}
-			.writing li a:hover .post-title {
-				color: var(--accent);
-			}
-			.writing li a :global(time) {
-				color: rgb(var(--gray));
-				font-size: 0.9rem;
-				white-space: nowrap;
-			}
-			.post-desc {
-				margin: 0.35rem 0 0;
-				color: rgb(var(--gray));
-				font-size: 0.98rem;
-			}
-			.all-posts {
-				display: inline-block;
-				margin-top: 1.25rem;
-				font-weight: 700;
-				text-decoration: none;
-			}
-			@media (max-width: 720px) {
-				.hero h1 {
-					font-size: 2.1rem;
+			@media (max-width: 640px) {
+				.intro {
+					flex-direction: column-reverse;
+					align-items: flex-start;
+					gap: 1.25rem;
 				}
-				.writing li a {
-					flex-direction: column;
-					gap: 0.2rem;
+				.portrait {
+					width: 120px;
+					height: 120px;
 				}
 			}
 		</style>
