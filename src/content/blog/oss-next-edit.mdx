@@ -19,22 +19,9 @@ Today we're releasing [Sweep Next-Edit: a 1.5B parameter model](https://huggingf
 
 We're open sourcing the model weights so the community can build fast, privacy-preserving autocomplete for every IDE - VSCode, Neovim, Emacs, and beyond.
 
-<div style={{
-  display: 'flex',
-  flexDirection: 'row',
-  gap: '20px',
-  alignItems: 'flex-start',
-  flexWrap: 'wrap',
-  marginTop: 12,
-  marginBottom: 12
-}}>
-  <div style={{ flex: '1 1 45%', minWidth: '280px' }}>
-    <ParetoChart client:visible />
-  </div>
-  <div style={{ flex: '1 1 45%', minWidth: '280px' }}>
-    <ModelRadarChart client:visible />
-  </div>
-</div>
+<ParetoChart client:visible />
+
+<ModelRadarChart client:visible />
 
 <ModelPerformanceTable client:visible />
 
