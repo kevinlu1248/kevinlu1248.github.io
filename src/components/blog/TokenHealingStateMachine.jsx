@@ -50,15 +50,15 @@ export default function TokenHealingStateMachine() {
 
   return (
     <div style={{
-      backgroundColor: '#000000',
+      backgroundColor: '#f6f8fa',
       borderRadius: '8px',
       padding: '24px',
       marginTop: '20px',
       marginBottom: '20px',
-      boxShadow: 'inset 0 0 0 1px rgb(64 64 64)'  // Same border style as TokenVisualizer
+      boxShadow: 'inset 0 0 0 1px #e5e7eb'  // Same border style as TokenVisualizer
     }}>
       <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-        <h4 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '600', color: '#e2e8f0' }}>
+        <h4 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '600', color: '#24292f' }}>
           Token Healing Example: "sw" to "sweep"
         </h4>
       </div>
@@ -66,7 +66,7 @@ export default function TokenHealingStateMachine() {
       <div>
         {/*{currentStepData.description && (*/}
         {/*  <div style={{*/}
-        {/*    color: '#e2e8f0',*/}
+        {/*    color: '#24292f',*/}
         {/*    fontSize: '15px',*/}
         {/*    marginBottom: '16px',*/}
         {/*    fontWeight: '400',*/}
@@ -82,10 +82,10 @@ export default function TokenHealingStateMachine() {
           padding: '12px',
           borderRadius: '6px',
           fontSize: '14px',
-          color: '#e2e8f0'
+          color: '#24292f'
         }}>
           <strong>Constraints:</strong> {currentStepData.allowedTokens}<br/>
-          <span style={{ color: '#a0aec0' }}>
+          <span style={{ color: '#6b7280' }}>
             Possible tokens: {currentStepData.examples.split(', ').map((token, index, arr) => {
               const cleanToken = token.replace(/"/g, '')
               const isSelected = currentStepData.nextToken &&
@@ -104,20 +104,20 @@ export default function TokenHealingStateMachine() {
         <div style={{
           marginTop: '20px',
           padding: '16px',
-          backgroundColor: 'rgba(64, 64, 64, 0.3)',
+          backgroundColor: 'rgba(0, 0, 0, 0.04)',
           borderRadius: '6px',
           fontSize: '13px',
           fontFamily: 'monospace'
         }}>
           {/* Current generation state */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <span style={{ color: '#94a3b8' }}>Generated: </span>
+            <span style={{ color: '#6b7280' }}>Generated: </span>
 
             {/* Show empty space if no tokens yet */}
             {currentStepData.tokens.length === 0 && (
               <span style={{
                 padding: '4px 8px',
-                backgroundColor: '#374151',
+                backgroundColor: '#e5e7eb',
                 color: 'transparent',
                 borderRadius: '4px',
                 textAlign: 'center'
@@ -132,8 +132,8 @@ export default function TokenHealingStateMachine() {
                 {index > 0 && <span style={{ color: '#64748b' }}>+</span>}
                 <span style={{
                   padding: '4px 8px',
-                  backgroundColor: '#374151',
-                  color: '#10b981',
+                  backgroundColor: '#e5e7eb',
+                  color: '#059669',
                   borderRadius: '4px'
                 }}>
                   {token}
@@ -147,11 +147,11 @@ export default function TokenHealingStateMachine() {
                 <span style={{ color: '#64748b' }}>+</span>
                 <span style={{
                   padding: '4px 8px',
-                  backgroundColor: '#374151',
-                  color: currentStep === 2 ? '#94a3b8' : '#fbbf24',
+                  backgroundColor: '#e5e7eb',
+                  color: currentStep === 2 ? '#6b7280' : '#b45309',
                   borderRadius: '4px',
                   animation: 'pulse 1s',
-                  border: currentStep === 2 ? 'none' : '1px dashed #fbbf24'
+                  border: currentStep === 2 ? 'none' : '1px dashed #b45309'
                 }}>
                   {currentStepData.nextToken}
                 </span>
@@ -160,7 +160,7 @@ export default function TokenHealingStateMachine() {
 
             {currentStep >= 2 && (
               <span style={{
-                color: '#10b981',
+                color: '#059669',
                 marginLeft: '8px',
                 fontWeight: 'bold'
               }}>
@@ -194,7 +194,7 @@ export default function TokenHealingStateMachine() {
           disabled={currentStep === steps.length - 1}
           style={{
             padding: '6px 12px',
-            backgroundColor: currentStep === steps.length - 1 ? '#d1d5db' : '#10b981',
+            backgroundColor: currentStep === steps.length - 1 ? '#d1d5db' : '#059669',
             color: 'white',
             border: 'none',
             borderRadius: '4px',

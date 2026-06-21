@@ -41,7 +41,7 @@ const TokenVisualizer = ({ text, tokens }) => {
     // Extract different parts of the hash for hue, saturation, and lightness
     const hue = Math.abs(hash) % 360;
     const saturation = 25 + (Math.abs(hash >>> 8) % 15); // 25-40% saturation for more muted colors
-    const lightness = isHovered ? 50 : 40; // 40-50% lightness for better contrast
+    const lightness = isHovered ? 88 : 82; // 40-50% lightness for better contrast
 
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   };
@@ -61,7 +61,7 @@ const TokenVisualizer = ({ text, tokens }) => {
         }
       `}</style>
       <div className="token-visualizer" style={{
-        backgroundColor: '#000000',
+        backgroundColor: '#f6f8fa',
         borderRadius: '8px',
         padding: '20px',
         marginTop: '20px',
@@ -70,7 +70,7 @@ const TokenVisualizer = ({ text, tokens }) => {
         fontSize: '14px',
         lineHeight: '1.6',
         position: 'relative',
-        boxShadow: 'inset 0 0 0 1px rgb(64 64 64)'  // ring-1 ring-inset dark:ring-neutral-700
+        boxShadow: 'inset 0 0 0 1px #e5e7eb'  // ring-1 ring-inset dark:ring-neutral-700
       }}>
       <div style={{
         fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
@@ -78,7 +78,7 @@ const TokenVisualizer = ({ text, tokens }) => {
         lineHeight: '1.8',  // Slightly decreased from 2.0
         whiteSpace: 'pre-wrap',
         wordBreak: 'break-word',
-        color: '#e2e8f0'
+        color: '#24292f'
       }}>
         {tokens.map((token, index) => {
           const isHovered = hoveredToken === index;
@@ -99,7 +99,7 @@ const TokenVisualizer = ({ text, tokens }) => {
               onMouseLeave={() => setHoveredToken(null)}
               style={{
                 backgroundColor: skipHighlight ? 'transparent' : tokenColor,
-                color: isSpecialChar ? '#e2e8f0' : 'inherit',
+                color: isSpecialChar ? '#24292f' : 'inherit',
                 cursor: skipHighlight ? 'default' : 'pointer',
                 position: 'relative',
                 transition: 'background-color 0.15s ease',
@@ -139,7 +139,7 @@ const TokenVisualizer = ({ text, tokens }) => {
 
       <div style={{
         marginTop: '15px',
-        color: '#a0aec0',
+        color: '#6b7280',
         fontSize: '12px',
         textAlign: 'right'
       }}>

@@ -168,12 +168,12 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
             className="trie-diagram"
             style={{
                 width: '100%',
-                border: '1px solid #374151',
+                border: '1px solid #e5e7eb',
                 borderRadius: '8px',
-                backgroundColor: '#0d1117',
+                backgroundColor: '#ffffff',
                 position: 'relative',
                 overflow: 'auto',
-                color: '#f9fafb',
+                color: '#24292f',
                 marginTop: '24px',
                 WebkitOverflowScrolling: 'touch',
                 touchAction: 'pan-x pan-y'
@@ -196,7 +196,7 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                             y1={conn.from.y + offsetY + nodeRadius}
                             x2={conn.to.x + offsetXAdjusted}
                             y2={conn.to.y + offsetY - nodeRadius}
-                            stroke={isConnectionHighlighted(conn) ? '#a78bfa' : '#6b7280'}
+                            stroke={isConnectionHighlighted(conn) ? '#7c3aed' : '#6b7280'}
                             strokeWidth={isConnectionHighlighted(conn) ? 3 : 2}
                             style={{ transition: 'all 0.3s ease' }}
                         />
@@ -215,7 +215,7 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                             width: `${nodeRadius * 2}px`,
                             height: `${nodeRadius * 2}px`,
                             borderRadius: '50%',
-                            backgroundColor: isNodeHighlighted(node) ? '#a78bfa' : '#374151',
+                            backgroundColor: isNodeHighlighted(node) ? '#7c3aed' : '#e5e7eb',
                             border: node.isEnd ? '3px solid #10b981' : '2px solid #6b7280',
                             display: 'flex',
                             alignItems: 'center',
@@ -223,7 +223,7 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                             cursor: 'pointer',
                             fontSize: isMobile ? '12px' : '14px',
                             fontWeight: 'bold',
-                            color: isNodeHighlighted(node) ? 'white' : '#f9fafb',
+                            color: isNodeHighlighted(node) ? 'white' : '#24292f',
                             transition: 'all 0.3s ease',
                             boxShadow: isNodeHighlighted(node) ? '0 4px 12px rgba(167, 139, 250, 0.4)' : '0 2px 4px rgba(0,0,0,0.1)',
                             transform: isNodeHighlighted(node) ? 'scale(1.1)' : 'scale(1)',
@@ -243,12 +243,12 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                     position: 'absolute',
                     top: '10px',
                     right: isMobile ? '18px' : '10px',
-                    backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.96)',
                     padding: isMobile ? '8px' : '12px',
                     borderRadius: '6px',
-                    border: '1px solid #374151',
+                    border: '1px solid #e5e7eb',
                     fontSize: isMobile ? '11px' : '12px',
-                    color: '#f9fafb',
+                    color: '#24292f',
                     maxHeight: isMobile ? '55%' : 'none',
                     overflowY: 'auto'
                 }}
@@ -267,7 +267,7 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                             cursor: 'pointer',
                             padding: '2px 4px',
                             borderRadius: '3px',
-                            backgroundColor: selectedWord === word ? '#a78bfa' : 'transparent',
+                            backgroundColor: selectedWord === word ? '#7c3aed' : 'transparent',
                             color: selectedWord === word ? 'white' : 'inherit',
                             marginBottom: '2px'
                         }}

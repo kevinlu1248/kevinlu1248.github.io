@@ -7,10 +7,10 @@ const CodeComparisonDiagram = () => {
     return (
         <div style={{
             width: '100%',
-            border: '1px solid #374151',
+            border: '1px solid #e5e7eb',
             borderRadius: '8px',
-            backgroundColor: '#0d1117',
-            color: '#f9fafb',
+            backgroundColor: '#ffffff',
+            color: '#24292f',
             marginTop: '24px',
             marginBottom: '24px',
             overflow: 'hidden'
@@ -19,12 +19,12 @@ const CodeComparisonDiagram = () => {
             <div style={{
                 padding: '20px',
                 paddingBottom: '0',
-                backgroundColor: 'rgba(17, 24, 39, 0.5)'
+                backgroundColor: 'rgba(0, 0, 0, 0.03)'
             }}>
                 <div style={{
                     fontSize: '14px',
                     fontWeight: '600',
-                    color: '#a78bfa',
+                    color: '#7c3aed',
                     marginBottom: '12px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.5px'
@@ -34,7 +34,7 @@ const CodeComparisonDiagram = () => {
 
                 <div style={{
                     fontSize: '13px',
-                    color: '#9ca3af',
+                    color: '#6b7280',
                     marginBottom: '16px',
                     fontStyle: 'italic'
                 }}>
@@ -43,7 +43,7 @@ const CodeComparisonDiagram = () => {
 
                 {/* Hunk 5 */}
                 <div style={{ marginBottom: '16px' }}>
-                    <div style={{ color: '#60a5fa', marginBottom: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
+                    <div style={{ color: '#2563eb', marginBottom: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
                         redisson-spring-data-18/...RedisClusterNodeDecoder.java:57-53
                     </div>
                     <CodeBlock
@@ -57,7 +57,7 @@ const CodeComparisonDiagram = () => {
 
                 {/* Hunk 6 */}
                 <div>
-                    <div style={{ color: '#60a5fa', marginBottom: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
+                    <div style={{ color: '#2563eb', marginBottom: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
                         redisson-spring-data-18/...RedisClusterNodeDecoder.java:75-71
                     </div>
                     <CodeBlock
@@ -73,14 +73,14 @@ const CodeComparisonDiagram = () => {
             {/* Current Span to Edit Section */}
             <div style={{
                 padding: '20px',
-                borderBottom: '2px solid #374151',
-                backgroundColor: 'rgba(17, 24, 39, 0.4)'
+                borderBottom: '2px solid #e5e7eb',
+                backgroundColor: 'rgba(0, 0, 0, 0.02)'
             }}>
                 <div
                     style={{
                         fontSize: '14px',
                         fontWeight: '600',
-                        color: '#60a5fa',
+                        color: '#2563eb',
                         marginBottom: isCurrentWindowExpanded ? '8px' : '0',
                         textTransform: 'uppercase',
                         letterSpacing: '0.5px',
@@ -103,7 +103,7 @@ const CodeComparisonDiagram = () => {
                 {isCurrentWindowExpanded && (
                     <>
                         <div style={{
-                            color: '#60a5fa',
+                            color: '#2563eb',
                             marginBottom: '12px',
                             fontSize: '11px',
                             fontFamily: 'monospace'
@@ -144,13 +144,13 @@ for (String nodeInfo : response.split("\\n")) {
             }}>
                 {/* Example 1: continuedev/instinct */}
                 <div style={{
-                    border: '1px solid #374151',
+                    border: '1px solid #e5e7eb',
                     overflow: 'hidden'
                 }}>
                     <div style={{
                         fontSize: '14px',
                         fontWeight: '600',
-                        color: '#9ca3af',
+                        color: '#6b7280',
                         padding: '16px 20px 12px 20px',
                         textTransform: 'uppercase',
                         letterSpacing: '0.5px',
@@ -160,7 +160,7 @@ for (String nodeInfo : response.split("\\n")) {
                     }}>
                         <span>continuedev/instinct</span>
                         <span style={{
-                            color: '#fca5a5',
+                            color: '#b91c1c',
                             fontSize: '11px',
                             backgroundColor: 'rgba(239, 68, 68, 0.15)',
                             padding: '4px 10px',
@@ -179,7 +179,7 @@ for (String nodeInfo : response.split("\\n")) {
                             backgroundColor: 'rgba(0, 0, 0, 0.2)',
                             fontFamily: 'monospace',
                             fontSize: '13px',
-                            color: '#9ca3af',
+                            color: '#6b7280',
                             fontStyle: 'italic',
                             textAlign: 'center',
                             display: 'flex',
@@ -193,7 +193,7 @@ for (String nodeInfo : response.split("\\n")) {
 
                 {/* Example 2: zed-industries/zeta */}
                 <div style={{
-                    border: '1px solid #374151',
+                    border: '1px solid #e5e7eb',
                     overflow: 'hidden'
                 }}>
                     <div style={{
@@ -209,7 +209,7 @@ for (String nodeInfo : response.split("\\n")) {
                     }}>
                         <span>zed-industries/zeta</span>
                         <span style={{
-                            color: '#fca5a5',
+                            color: '#b91c1c',
                             fontSize: '11px',
                             backgroundColor: 'rgba(239, 68, 68, 0.15)',
                             padding: '4px 10px',
@@ -240,13 +240,13 @@ for (String nodeInfo : response.split("\\n")) {
 
                 {/* Example 3: Sweep 7B */}
                 <div style={{
-                    border: '1px solid #374151',
+                    border: '1px solid #e5e7eb',
                     overflow: 'hidden'
                 }}>
                     <div style={{
                         fontSize: '14px',
                         fontWeight: '600',
-                        color: '#a78bfa',
+                        color: '#7c3aed',
                         padding: '16px 20px 12px 20px',
                         textTransform: 'uppercase',
                         letterSpacing: '0.5px',
@@ -256,7 +256,7 @@ for (String nodeInfo : response.split("\\n")) {
                     }}>
                         <span>sweepai/sweep-next-edit-7B</span>
                         <span style={{
-                            color: '#6ee7b7',
+                            color: '#047857',
                             fontSize: '11px',
                             backgroundColor: 'rgba(16, 185, 129, 0.15)',
                             padding: '4px 10px',
@@ -280,31 +280,31 @@ for (String nodeInfo : response.split("\\n")) {
             {/* Summary Section */}
             <div style={{
                 padding: '20px',
-                borderTop: '2px solid #374151',
-                backgroundColor: 'rgba(17, 24, 39, 0.5)'
+                borderTop: '2px solid #e5e7eb',
+                backgroundColor: 'rgba(0, 0, 0, 0.03)'
             }}>
                 <div style={{
                     fontSize: '13px',
-                    color: '#d1d5db',
+                    color: '#374151',
                     lineHeight: '1.6',
                     marginBottom: '12px'
                 }}>
-                    <strong style={{ color: '#a78bfa' }}>Key Insight:</strong> While all three models were shown the same recent changes pattern,
-                    only <strong style={{ color: '#a78bfa' }}>Sweep Next-Edit 1.5B</strong> made the precise, contextually appropriate edit.
+                    <strong style={{ color: '#7c3aed' }}>Key Insight:</strong> While all three models were shown the same recent changes pattern,
+                    only <strong style={{ color: '#7c3aed' }}>Sweep Next-Edit 1.5B</strong> made the precise, contextually appropriate edit.
                     The other models either made no changes or introduced extraneous modifications that could break the code.
                 </div>
                 <div style={{
                     fontSize: '12px',
-                    color: '#9ca3af'
+                    color: '#6b7280'
                 }}>
                     <a
                         href="https://github.com/redisson/redisson/commit/e073ebd438a15307640b5708085050ec4b752af2#diff-28401df24ac8361a8aa3b482641114eda07efe40c7b85640f2812115da45aac7R71-R72"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                            color: '#60a5fa',
+                            color: '#2563eb',
                             textDecoration: 'none',
-                            borderBottom: '1px dotted #60a5fa'
+                            borderBottom: '1px dotted #2563eb'
                         }}
                     >
                         View full commit on GitHub →
