@@ -1,13 +1,20 @@
 // @ts-check
 
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://kevinlu1248.github.io',
-	integrations: [mdx(), sitemap()],
+	integrations: [mdx(), react(), sitemap()],
+	markdown: {
+		remarkPlugins: [remarkMath],
+		rehypePlugins: [rehypeKatex],
+	},
 	fonts: [
 		{
 			// Free match for Adobe Garamond Pro used on jasonwei.net

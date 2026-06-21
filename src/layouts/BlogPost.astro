@@ -43,6 +43,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			article :global(h2) {
 				margin-top: 2rem;
 			}
+			/* Interactive widgets (recharts charts, token/trie visualizers) were
+			   built for the Sweep blog's dark theme — wrap each in a dark figure
+			   card so their light text/labels stay readable on this light page. */
+			article :global(astro-island) {
+				display: block;
+				background: #0b0d12;
+				border: 1px solid #1d212b;
+				border-radius: 10px;
+				padding: 1.25rem;
+				margin: 1.75rem 0;
+				overflow-x: auto;
+				/* Resolve the Nextra theme vars the components reference, to the
+				   dark-card palette so their titles/text/borders stay readable. */
+				--nextra-bg: #0b0d12;
+				--nextra-fg: #e8e8ea;
+				--nextra-border: #2a2f3a;
+			}
 			.back {
 				display: inline-block;
 				margin-bottom: 2rem;

@@ -56,6 +56,12 @@ h2 {
 h3 {
 	font-size: 1.5rem;
 }
+h4 {
+	font-size: 1.2rem;
+}
+h5 {
+	font-size: 1.05rem;
+}
 p {
 	margin: 0 0 1rem 0;
 }
@@ -111,6 +117,21 @@ pre > code {
 table {
 	width: 100%;
 	border-collapse: collapse;
+	display: block;
+	overflow-x: auto;
+	font-size: 0.95rem;
+	margin: 0 0 1.25rem;
+}
+th,
+td {
+	border: 1px solid var(--rule);
+	padding: 0.4rem 0.7rem;
+	text-align: left;
+	white-space: nowrap;
+}
+th {
+	background: rgba(0, 0, 0, 0.035);
+	font-weight: 600;
 }
 
 /* Date-indexed lists (Writing / Projects sections) */
