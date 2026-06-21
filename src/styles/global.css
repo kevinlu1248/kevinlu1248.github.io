@@ -10,13 +10,13 @@
 	--muted: #6b6b6b;
 	--rule: #e0e0dd;
 	--font-serif: 'EB Garamond', Georgia, Cambria, 'Times New Roman', serif;
-	--content-width: 600px;
+	--content-width: 820px;
 }
 * {
 	box-sizing: border-box;
 }
 html {
-	font-size: 20px;
+	font-size: 18px;
 }
 body {
 	font-family: var(--font-serif);
@@ -172,7 +172,7 @@ th {
 
 @media (max-width: 640px) {
 	html {
-		font-size: 18px;
+		font-size: 16px;
 	}
 	main {
 		margin-top: 2rem;
