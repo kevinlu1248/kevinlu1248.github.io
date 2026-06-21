@@ -99,12 +99,12 @@ export default function ParetoChart() {
       const data = payload[0].payload;
       return (
         <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          backgroundColor: 'rgba(255, 255, 255, 0.97)',
+          border: '1px solid rgba(0, 0, 0, 0.12)',
           borderRadius: '8px',
           padding: '12px',
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
-          color: '#ffffff',
+          color: '#1f2937',
           backdropFilter: 'blur(8px)'
         }}>
           <p style={{ margin: 0, fontWeight: '600', marginBottom: '6px', fontSize: '0.95rem' }}>
@@ -133,7 +133,7 @@ export default function ParetoChart() {
         marginBottom: '20px',
         fontSize: '1.1rem',
         fontWeight: '600',
-        color: '#ffffff',
+        color: '#1f2937',
         textAlign: 'center',
         margin: '0 0 20px 0'
       }}>
@@ -162,7 +162,7 @@ export default function ParetoChart() {
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#ffffff"
+              stroke="#1f2937"
               opacity={0}
             />
             <XAxis
@@ -172,15 +172,15 @@ export default function ParetoChart() {
               unit=""
               tick={{
                 fontSize: 12,
-                fill: '#ffffff',
+                fill: '#1f2937',
                 fontWeight: '500'
               }}
               axisLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               tickLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               domain={[0, 1200]}
@@ -192,7 +192,7 @@ export default function ParetoChart() {
                 offset={18}
                 style={{
                   textAnchor: 'middle',
-                  fill: '#ffffff',
+                  fill: '#1f2937',
                   fontWeight: '600',
                   fontSize: '14px'
                 }}
@@ -205,15 +205,15 @@ export default function ParetoChart() {
               unit="%"
               tick={{
                 fontSize: 12,
-                fill: '#ffffff',
+                fill: '#1f2937',
                 fontWeight: '500'
               }}
               axisLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               tickLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               domain={[0, 100]}
@@ -225,7 +225,7 @@ export default function ParetoChart() {
                 position="insideLeft"
                 style={{
                   textAnchor: 'middle',
-                  fill: '#ffffff',
+                  fill: '#1f2937',
                   fontWeight: '600',
                   fontSize: '14px'
                 }}
@@ -365,7 +365,7 @@ export default function ParetoChart() {
                     <text
                       x={x + 18}
                       y={y - 1}
-                      fill={isSweep ? '#a78bfa' : '#ffffff'}
+                      fill={isSweep ? '#a78bfa' : '#1f2937'}
                       textAnchor="start"
                       fontSize="9"
                       fontWeight={isSweep ? '600' : '500'}

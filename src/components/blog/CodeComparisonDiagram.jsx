@@ -9,7 +9,7 @@ const CodeComparisonDiagram = () => {
             width: '100%',
             border: '1px solid #374151',
             borderRadius: '8px',
-            backgroundColor: 'rgba(17, 24, 39, 0.3)',
+            backgroundColor: '#0d1117',
             color: '#f9fafb',
             marginTop: '24px',
             marginBottom: '24px',

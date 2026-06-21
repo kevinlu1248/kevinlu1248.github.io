@@ -170,7 +170,7 @@ const TrieDiagram = ({ words = ["cat", "car", "card", "care", "careful"] }) => {
                 width: '100%',
                 border: '1px solid #374151',
                 borderRadius: '8px',
-                backgroundColor: 'rgba(17, 24, 39, 0.3)',
+                backgroundColor: '#0d1117',
                 position: 'relative',
                 overflow: 'auto',
                 color: '#f9fafb',

@@ -162,13 +162,13 @@ export function ModelPerformanceTable() {
         }}>
           <thead>
             <tr style={{ borderBottom: '2px solid #374151' }}>
-              <th style={{ padding: '10px', textAlign: 'left', color: '#ffffff' }}>Model</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff' }}>Below</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff' }}>Above</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff' }}>Tab to Jump</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff' }}>FIM</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff' }}>Noise</th>
-              <th style={{ padding: '10px', textAlign: 'center', color: '#ffffff', fontWeight: 'bold' }}>Overall</th>
+              <th style={{ padding: '10px', textAlign: 'left', color: '#1f2937' }}>Model</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Below</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Above</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Tab to Jump</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>FIM</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Noise</th>
+              <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937', fontWeight: 'bold' }}>Overall</th>
             </tr>
           </thead>
           <tbody>
@@ -185,25 +185,25 @@ export function ModelPerformanceTable() {
                 }}>
                   {model.name}
                 </td>
-                <td style={{ padding: '10px', textAlign: 'center', color: '#D1D5DB' }}>
+                <td style={{ padding: '10px', textAlign: 'center', color: '#6b7280' }}>
                   {model['Next Edit Down'].toFixed(2)}%
                 </td>
-                <td style={{ padding: '10px', textAlign: 'center', color: '#D1D5DB' }}>
+                <td style={{ padding: '10px', textAlign: 'center', color: '#6b7280' }}>
                   {model['Next Edit Up'].toFixed(2)}%
                 </td>
-                <td style={{ padding: '10px', textAlign: 'center', color: '#D1D5DB' }}>
+                <td style={{ padding: '10px', textAlign: 'center', color: '#6b7280' }}>
                   {model['Tab to Jump'].toFixed(2)}%
                 </td>
-                <td style={{ padding: '10px', textAlign: 'center', color: '#D1D5DB' }}>
+                <td style={{ padding: '10px', textAlign: 'center', color: '#6b7280' }}>
                   {model['FIM'].toFixed(2)}%
                 </td>
-                <td style={{ padding: '10px', textAlign: 'center', color: '#D1D5DB' }}>
+                <td style={{ padding: '10px', textAlign: 'center', color: '#6b7280' }}>
                   {model['Noise'].toFixed(2)}%
                 </td>
                 <td style={{
                   padding: '10px',
                   textAlign: 'center',
-                  color: model.name.includes('Sweep') ? '#a78bfa' : '#ffffff',
+                  color: model.name.includes('Sweep') ? '#a78bfa' : '#1f2937',
                   fontWeight: 'bold'
                 }}>
                   {model.overall.toFixed(2)}%
@@ -239,12 +239,12 @@ export default function ModelRadarChart() {
     if (active && payload && payload.length) {
       return (
         <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          backgroundColor: 'rgba(255, 255, 255, 0.97)',
+          border: '1px solid rgba(0, 0, 0, 0.12)',
           borderRadius: '8px',
           padding: '12px',
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
-          color: '#ffffff',
+          color: '#1f2937',
           backdropFilter: 'blur(8px)'
         }}>
           <p style={{ margin: 0, fontWeight: '600', marginBottom: '8px', fontSize: '0.95rem' }}>
@@ -276,7 +276,7 @@ export default function ModelRadarChart() {
         marginBottom: '10px',
         fontSize: '1.1rem',
         fontWeight: '600',
-        color: '#ffffff',
+        color: '#1f2937',
         textAlign: 'center'
       }}>
         Accuracy by Task Category
@@ -303,7 +303,7 @@ export default function ModelRadarChart() {
             <PolarAngleAxis
               dataKey="category"
               tick={{
-                fill: '#ffffff',
+                fill: '#1f2937',
                 fontSize: 12,
                 fontWeight: 500,
                 style: { zIndex: 1000 }

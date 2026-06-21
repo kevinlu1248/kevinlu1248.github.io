@@ -45,12 +45,12 @@ export default function PerformanceComparisonChart({
       const data = payload[0].payload;
       return (
         <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          backgroundColor: 'rgba(255, 255, 255, 0.97)',
+          border: '1px solid rgba(0, 0, 0, 0.12)',
           borderRadius: '8px',
           padding: '12px',
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
-          color: '#ffffff',
+          color: '#1f2937',
           backdropFilter: 'blur(8px)'
         }}>
           <p style={{ margin: 0, fontWeight: '600', marginBottom: '6px', fontSize: '0.95rem' }}>
@@ -87,8 +87,8 @@ export default function PerformanceComparisonChart({
           y={y - 25}
           width="60"
           height="18"
-          fill="rgba(0, 0, 0, 0.8)"
-          stroke="rgba(255, 255, 255, 0.2)"
+          fill="rgba(255, 255, 255, 0.95)"
+          stroke="rgba(0, 0, 0, 0.12)"
           strokeWidth="1"
           rx="3"
         />
@@ -96,7 +96,7 @@ export default function PerformanceComparisonChart({
         <text
           x={x + width / 2}
           y={y - 12}
-          fill="#ffffff"
+          fill="#1f2937"
           textAnchor="middle"
           fontSize="11"
           fontWeight="700"
@@ -119,7 +119,7 @@ export default function PerformanceComparisonChart({
         marginBottom: '20px',
         fontSize: '1.1rem',
         fontWeight: '600',
-        color: '#ffffff',
+        color: '#1f2937',
         textAlign: 'center',
         margin: '0 0 20px 0'
       }}>
@@ -156,37 +156,37 @@ export default function PerformanceComparisonChart({
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#ffffff"
+              stroke="#1f2937"
               opacity={0.2}
             />
             <XAxis
               dataKey="metric"
               tick={{
                 fontSize: 14,
-                fill: '#ffffff',
+                fill: '#1f2937',
                 fontWeight: '600'
               }}
               axisLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               tickLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
             />
             <YAxis
               tick={{
                 fontSize: 12,
-                fill: '#ffffff',
+                fill: '#1f2937',
                 fontWeight: '500'
               }}
               axisLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               tickLine={{
-                stroke: '#ffffff',
+                stroke: '#1f2937',
                 strokeWidth: 1
               }}
               label={{
@@ -195,7 +195,7 @@ export default function PerformanceComparisonChart({
                 position: 'insideLeft',
                 style: {
                   textAnchor: 'middle',
-                  fill: '#ffffff',
+                  fill: '#1f2937',
                   fontWeight: '600'
                 }
               }}
@@ -208,7 +208,7 @@ export default function PerformanceComparisonChart({
               name={beforeLabel}
               fill={beforeColor}
               radius={[4, 4, 0, 0]}
-              stroke="#ffffff"
+              stroke="#1f2937"
               strokeWidth={1}
             >
               <LabelList content={<ValueLabel />} />
@@ -221,7 +221,7 @@ export default function PerformanceComparisonChart({
                 name={middleLabel}
                 fill={middleColor}
                 radius={[4, 4, 0, 0]}
-                stroke="#ffffff"
+                stroke="#1f2937"
                 strokeWidth={1}
               >
                 <LabelList content={<ValueLabel />} />
@@ -234,7 +234,7 @@ export default function PerformanceComparisonChart({
               name={afterLabel}
               fill={afterColor}
               radius={[4, 4, 0, 0]}
-              stroke="#ffffff"
+              stroke="#1f2937"
               strokeWidth={1}
             >
               <LabelList content={<ValueLabel />} />
@@ -258,7 +258,7 @@ export default function PerformanceComparisonChart({
             backgroundColor: beforeColor,
             borderRadius: '2px'
           }} />
-          <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>
+          <span style={{ color: '#1f2937', fontSize: '14px', fontWeight: '600' }}>
             {beforeLabel}
           </span>
         </div>
@@ -270,7 +270,7 @@ export default function PerformanceComparisonChart({
               backgroundColor: middleColor,
               borderRadius: '2px'
             }} />
-            <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>
+            <span style={{ color: '#1f2937', fontSize: '14px', fontWeight: '600' }}>
               {middleLabel}
             </span>
           </div>
@@ -282,7 +282,7 @@ export default function PerformanceComparisonChart({
             backgroundColor: afterColor,
             borderRadius: '2px'
           }} />
-          <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>
+          <span style={{ color: '#1f2937', fontSize: '14px', fontWeight: '600' }}>
             {afterLabel}
           </span>
         </div>
@@ -290,7 +290,7 @@ export default function PerformanceComparisonChart({
 
       <div style={{
         fontSize: '12px',
-        color: '#ffffff',
+        color: '#1f2937',
         marginTop: '5px',
         textAlign: 'center',
         opacity: 0.8
