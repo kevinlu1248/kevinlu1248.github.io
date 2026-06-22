@@ -97,7 +97,7 @@ We also provide context of the rest of the diffs of the commit (representing rec
 
 We found that the majority of Jetbrains users use Intellij (Java), Android Studio (Kotlin), PyCharm (Python), RubyMine (Ruby) and Rider (C#), so we upsampled from these languages.
 
-<LanguageBarChart client:visible
+<LanguageBarChart client:only="react"
   title="Language Distribution"
   data={[
     { language: 'Java', entries: 13825, percentage: 16.59 },
@@ -228,13 +228,13 @@ Further, in the context of next-edit autocomplete, >90% of the tokens will be un
 
 Turning this on in vLLM, we get a 10x improvement on decoding time and a 5x improvement on total time:
 
-<PerformanceComparisonChart client:visible />
+<PerformanceComparisonChart client:only="react" />
 
 ### Hardware Upgrade
 
 While speculative decoding provided significant improvements, we knew we could push further with better hardware. Around this time we finally got our H100 quota from GCP, and a quick benchmarking reveals a ~3x speedup across both TTFT and decoding time. Turning on vLLM's FP8 dynamic quantization and torch compile yields another ~20% boost:
 
-<PerformanceComparisonChart client:visible
+<PerformanceComparisonChart client:only="react"
   beforeData={{ ttft: 185.6, decoding: 363.0, total: 623.9 }}
   middleData={{ ttft: 74.1, decoding: 131.0, total: 226.7 }}
   afterData={{ ttft: 50.9, decoding: 115.2, total: 187.3 }}
@@ -257,7 +257,7 @@ On the algorithm side, others have built suffix automata or KMP for doing n-gram
 
 Without quantization TRT-LLM is actually slower than vLLM, but with FP8 E4M3 quantization it achieves significant improvements:
 
-<PerformanceComparisonChart client:visible
+<PerformanceComparisonChart client:only="react"
   beforeData={{ ttft: 50.9, decoding: 115.2, total: 187.3 }}
   middleData={{ ttft: 104.16, decoding: 98.24, total: 193.00 }}
   afterData={{ ttft: 66.61, decoding: 59.16, total: 130.39 }}
@@ -274,7 +274,7 @@ We can squeeze even more performance out using FP8 KV Cache, but we struggled to
 
 We also implemented another trick: when we know that the model has generated enough changes that it's ready to show to the user, we can return the result early and cancel the rest of the stream. With this optimization we get:
 
-<PerformanceComparisonChart client:visible
+<PerformanceComparisonChart client:only="react"
   beforeData={{ ttft: 66.61, decoding: 59.16, total: 130.39 }}
   afterData={{ ttft: 70.86, decoding: 14.26, total: 94.49 }}
   title="TRT-LLM FP8 vs FP8 + Early Cancellation (P50)"
@@ -288,7 +288,7 @@ All these benchmarks are computed with a cold KV cache. With a warm KV cache the
 
 In summary, here's a breakdown of all the optimizations:
 
-<OptimizationJourneyChart client:visible />
+<OptimizationJourneyChart client:only="react" />
 
 With response times now faster than human typing speed, we are able to generate suggestions for every keystroke, feeling significantly more responsive than other autocompletions available in JetBrains IDEs.
 
