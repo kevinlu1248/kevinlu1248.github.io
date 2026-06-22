@@ -14,6 +14,8 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			// Original URL when this post is a repost
+			canonicalUrl: z.string().optional(),
 		}),
 });
 

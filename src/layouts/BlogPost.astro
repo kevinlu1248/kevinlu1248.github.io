@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, canonicalUrl } = Astro.props;
 ---
 
 <html lang="en">
@@ -28,6 +28,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.repost-note {
+				margin: 0.75rem 0 0;
+				font-size: 0.95rem;
+				font-style: italic;
+				color: var(--muted);
 			}
 			.hero-image {
 				margin: 0 0 2rem;
@@ -109,6 +115,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						}
 					</div>
 					<h1>{title}</h1>
+					{
+						canonicalUrl && (
+							<p class="repost-note">
+								Originally published on the{' '}
+								<a href={canonicalUrl} target="_blank" rel="noopener">Sweep blog</a>.
+							</p>
+						)
+					}
 				</div>
 				{
 					heroImage && (
