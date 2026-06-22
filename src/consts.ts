@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Kevin Lu';
 export const SITE_DESCRIPTION =
-	'Co-founder of Sweep AI (YC 23). Writing about AI, engineering, and building things.';
+	'Kevin Lu — co-founder of Sweep AI (YC S23), previously an ML engineer at Roblox. I write about large language models, fine-tuning, inference, and developer tools.';
