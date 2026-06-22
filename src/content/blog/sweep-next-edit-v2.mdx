@@ -1,0 +1,31 @@
+---
+title: Open sourcing Sweep Next-Edit v2 and our inference runtime
+pubDate: 2026-06-21
+description: We've open sourced our new 7B next-edit autocomplete model and the TensorRT-LLM runtime we use to serve it.
+author: Kevin Lu
+---
+
+*We're open sourcing the next version of our autocomplete model — and the runtime that serves it.*
+
+---
+
+Today we're releasing two more pieces of our autocomplete stack:
+
+- **[Sweep Next-Edit v2](https://huggingface.co/sweepai/sweep-next-edit-v2-7B)** — a 7B next-edit autocomplete model, the successor to the [1.5B model we open sourced earlier](/blog/oss-next-edit).
+- **[Our TensorRT-LLM fork](https://github.com/sweepai/TensorRT-LLM)** — the inference runtime we use to serve these models in production.
+
+## The model
+
+[Sweep Next-Edit v2](https://huggingface.co/sweepai/sweep-next-edit-v2-7B) predicts your next code edit before you make it, just like [v1](/blog/oss-next-edit) — but at 7B parameters it has more headroom for the harder, longer-range edits where the smaller model struggled.
+
+Everything we wrote up about [our training format and data](/blog/oss-next-edit#our-format) still applies. The weights are on Hugging Face under a permissive license, so you can run it locally or build it into any editor — VSCode, Neovim, Emacs, and beyond.
+
+## The runtime
+
+Serving a next-edit model quickly is as much an inference problem as a modeling one. So we're also open sourcing [our fork of TensorRT-LLM](https://github.com/sweepai/TensorRT-LLM), which includes the [n-gram speculative decoding and early-cancellation](/blog/next-edit-jetbrains#speculative-decoding) work we built to get autocompletes under 100ms.
+
+Previously this lived behind our own deployment. Releasing it means anyone can reproduce the low-latency serving setup, not just the model.
+
+## Try it out
+
+If you use JetBrains IDEs, [try out Sweep](https://plugins.jetbrains.com/plugin/26860-sweep-ai). And if you're building your own tooling, grab the [model](https://huggingface.co/sweepai/sweep-next-edit-v2-7B) and the [runtime](https://github.com/sweepai/TensorRT-LLM) — we'd love to see what you build, and contributions are welcome.

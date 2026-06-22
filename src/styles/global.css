@@ -169,6 +169,12 @@ th {
 	color: var(--accent);
 	font-style: italic;
 }
+.entry-list .tag {
+	color: var(--muted);
+	font-size: 0.8rem;
+	margin-right: 0.4rem;
+	white-space: nowrap;
+}
 
 @media (max-width: 640px) {
 	html {
