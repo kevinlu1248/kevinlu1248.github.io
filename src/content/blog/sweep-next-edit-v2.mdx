@@ -20,11 +20,39 @@ Today we're releasing two more pieces of our autocomplete stack:
 
 Everything we wrote up about [our training format and data](/blog/oss-next-edit#our-format) still applies. The weights are on Hugging Face under a permissive license, so you can run it locally or build it into any editor — VSCode, Neovim, Emacs, and beyond.
 
+## Reinforcement learning rewards
+
+Like v1, we finished training with on-policy RL. v2 adds three reward functions that target the failure modes we saw most often in production.
+
+### Don't re-suggest reverted code
+
+A suggestion the user already typed and then undid is almost always wrong. So we traverse the editor's undo stack and check whether the model's suggestion appears in it — if it does, we apply a penalty. This pushes the model away from "helpfully" re-introducing changes the developer just deleted.
+
+![Revert-changes penalty reward over training](/sweep-next-edit-v2/revert-penalty.png)
+
+### Ranking suggestions with an LLM judge
+
+We use [Claude Opus 4.5](https://www.anthropic.com) as an LLM-as-a-judge to rank candidate completions from best to worst. Opus has far stronger long-context reasoning than a 7B model, so it can make the optimal call given the surrounding code. For example, when there are several valid arguments for a function call, it reasons about which one is most likely the user's actual intent. The 7B model is then rewarded for matching the judge's ranking.
+
+![LLM-judge reward over training](/sweep-next-edit-v2/llm-judge-reward.png)
+
+### Parse penalty
+
+If applying a completion yields code that doesn't parse, we penalize it — the same idea as in our [previous RL pipeline](/blog/oss-next-edit#on-policy-reinforcement-learning). It's a cheap, deterministic signal that keeps the model from breaking the file.
+
+![Parse penalty reward over training](/sweep-next-edit-v2/parse-penalty.png)
+
+## Preference aligning with real users
+
+We trained this run with Claude Opus 4.5 as the judge, around autumn 2025. At that point even strong models had a tendency to write overly fail-safe code — reaching for `dict.get(key)` instead of `dict[key]`, or wrapping things in defensive checks the developer never asked for. It was one of the most common sources of user frustration.
+
+To fix it, we preference-aligned the model against what users actually do. We record the developer's edits for ~30 seconds after a suggestion is shown and use that real behavior as the preference signal — rewarding completions that match what the user kept, penalizing the ones they rewrote. This improved our acceptance rate by ~2%, with a lot of users telling us the new autocomplete "just gets me."
+
 ## The runtime
 
-Serving a next-edit model quickly is as much an inference problem as a modeling one. So we're also open sourcing [our fork of TensorRT-LLM](https://github.com/sweepai/TensorRT-LLM), which includes the [n-gram speculative decoding and early-cancellation](/blog/next-edit-jetbrains#speculative-decoding) work we built to get autocompletes under 100ms.
+Serving a next-edit model quickly is as much an inference problem as a modeling one, so we're also open sourcing [our fork of TensorRT-LLM](https://github.com/sweepai/TensorRT-LLM). It includes the [n-gram speculative decoding and early-cancellation](/blog/next-edit-jetbrains#speculative-decoding) work we built to get autocompletes under 100ms.
 
-Previously this lived behind our own deployment. Releasing it means anyone can reproduce the low-latency serving setup, not just the model.
+We built this fork back in May 2025, before n-gram speculative decoding had landed in NVIDIA's upstream TensorRT-LLM. It's since been added upstream — but only for the PyTorch runtime, which for our Qwen2.5-based model is 2-3x slower than the TensorRT-LLM runtime. So our fork is still the fastest way to serve these models, and we're sharing it so others don't have to reimplement the same optimizations.
 
 ## Try it out
 
