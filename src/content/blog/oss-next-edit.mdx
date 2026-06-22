@@ -55,11 +55,15 @@ The poor performance of Zeta and Instinct, such as extra or missing trailing lin
 * Similarly, Zeta and Instinct don't use special tokens for multi-file context. Zeta doesn't support multi-file context at all, while Instinct uses custom tokens rather than the special tokens Qwen2.5-Coder was pretrained on.
 * Both Zeta and Instinct include excessive instructions. For example, Instinct has a system message introducing itself as "Instinct, developed by Continue" (information an autocomplete model doesn't need). These extra tokens add noise that disproportionately affects small LLMs, and they increase latency.
 
+<div className="wrap-code">
+
 ```python filename="continuedev/instinct/utils/datautils.py"
 SYSTEM_PROMPT = """You are Instinct, an intelligent next-edit predictor developed by Continue.dev.
 ...
 """
 ```
+
+</div>
 
 Source: https://github.com/continuedev/instinct/blob/2f888a1b152fdaab37a1c9043b749aabdf55a305/utils/datautils.py.
 

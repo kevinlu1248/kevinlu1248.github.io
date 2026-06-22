@@ -114,7 +114,7 @@ const MODEL_DATA = [
       'Next Edit Up': 46.94,
       'FIM': 56.25,
       overall: 67.82,
-      color: '#a78bfa',
+      color: '#7c3aed',
       showInRadar: false
     },
     {
@@ -152,7 +152,7 @@ export function ModelPerformanceTable() {
   const sortedData = [...sweepModels, ...otherModels, ...qwenModels];
 
   return (
-    <div style={{ marginTop: '30px', border: "1px solid #374151", borderRadius: "4px" }}>
+    <div style={{ marginTop: '30px', border: "1px solid #e5e7eb", borderRadius: "4px" }}>
       <div style={{ overflowX: 'auto' }}>
         <table style={{
           width: '100%',
@@ -161,7 +161,7 @@ export function ModelPerformanceTable() {
           overflow: 'hidden'
         }}>
           <thead>
-            <tr style={{ borderBottom: '2px solid #374151' }}>
+            <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
               <th style={{ padding: '10px', textAlign: 'left', color: '#1f2937' }}>Model</th>
               <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Below</th>
               <th style={{ padding: '10px', textAlign: 'center', color: '#1f2937' }}>Above</th>
@@ -174,7 +174,7 @@ export function ModelPerformanceTable() {
           <tbody>
             {sortedData.map((model, index) => (
               <tr key={model.name} style={{
-                borderBottom: '1px solid #1F2937',
+                borderBottom: '1px solid #f0f0ee',
                 backgroundColor: model.name.includes('Qwen') ? 'rgba(107, 114, 128, 0.1)' :
                                  (index < 4 && model.name.includes('Sweep') ? 'rgba(167, 139, 250, 0.05)' : 'transparent')
               }}>
@@ -203,7 +203,7 @@ export function ModelPerformanceTable() {
                 <td style={{
                   padding: '10px',
                   textAlign: 'center',
-                  color: model.name.includes('Sweep') ? '#a78bfa' : '#1f2937',
+                  color: model.name.includes('Sweep') ? '#7c3aed' : '#1f2937',
                   fontWeight: 'bold'
                 }}>
                   {model.overall.toFixed(2)}%
@@ -296,7 +296,7 @@ export default function ModelRadarChart() {
             <PolarGrid
               gridType="polygon"
               radialLines={true}
-              stroke="#374151"
+              stroke="#e5e7eb"
               strokeWidth={1}
             />
 

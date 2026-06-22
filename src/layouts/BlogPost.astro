@@ -47,7 +47,19 @@ const { title, description, pubDate, updatedDate, heroImage, canonicalUrl } = As
 				margin: 0 0 1.25rem;
 			}
 			article :global(h2) {
-				margin-top: 2rem;
+				margin: 2.25rem 0 1.1rem;
+			}
+			/* Soft-wrap opt-in for code blocks with very long lines */
+			article :global(.wrap-code pre),
+			article :global(.wrap-code pre code) {
+				white-space: pre-wrap;
+				overflow-wrap: anywhere;
+			}
+			/* Don't let the global table cell borders bleed into the
+			   component (ModelPerformanceTable) — it draws its own. */
+			article :global(astro-island) th,
+			article :global(astro-island) td {
+				border: none;
 			}
 			/* Full-width screenshots: break standalone images out of the text
 			   column to a wide centered band (capped so they stay crisp). */
