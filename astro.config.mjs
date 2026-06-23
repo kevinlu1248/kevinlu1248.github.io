@@ -9,7 +9,7 @@ import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://kevinlu1248.github.io',
+	site: 'https://yuhai.lu',
 	integrations: [mdx(), react(), sitemap()],
 	markdown: {
 		remarkPlugins: [remarkMath],
